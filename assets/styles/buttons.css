@@ -1,0 +1,48 @@
+.card-container {
+    display: flex;
+    padding:1vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+
+}
+.card {
+    background: #F9E6CF;
+    margin:1vw;
+    height:auto;
+    width: 25vw;
+    color:rgb(25, 24, 24);
+
+
+}
+.card:hover {
+    background-color: #FAC67A;
+    color:rgb(25, 24, 24);
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+}
+.card p {
+    padding: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.card h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+@media screen and (max-width: 900px) {
+    .card-container {
+        display: flex;
+        padding:2vw;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card {
+        background: white;
+        margin:10px;
+        height:auto;
+        width: auto;
+    }
+
+}

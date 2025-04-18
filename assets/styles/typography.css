@@ -1,0 +1,33 @@
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #FAC67A;
+}
+h2 {
+    color:#F9E6CF;
+    font-size: 1.5 rem;
+}
+footer {
+    font-size: 0.5ren;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    color: #DA498D;
+}
+p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.h2center {
+    color:#F9E6CF;
+    font-size: 1.5 rem;
+    margin-top: 3vw;
+    text-align: center;
+}
+
+.pCenter {
+    color:#ffffff;
+    font-size: 1 rem;
+    margin-top: 3vw;
+    text-align: center;
+}

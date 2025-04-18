@@ -1,0 +1,14 @@
+@import url(styles/picture.css);
+@import url(styles/typography.css);
+@import url(styles/buttons.css);
+
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(249, 230, 207);
+    background-color: #69247C;
+    margin: 0;
+}
+main {
+    margin: 80px;
+}
