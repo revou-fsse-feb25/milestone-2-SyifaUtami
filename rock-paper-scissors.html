@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syifa Utami's Website</title>
+    <meta name="REIMAJINEgames" content="">
+    <link rel="stylesheet" href="assets/index.css"></link>
+</head>
+<body> 
+    <main>
+        <img src="assets/images/rock-paper.gif" class="center">
+        <h1> Rock Paper Scissors! &#9994 &#9995</h1>
+        <div class="container">
+            <h2> How to play &#x1f579;</h2>
+                <ul class="ulCenter">
+                    <li>The computer will randomly pick between rock, paper, scissors</li>
+                    <li>you also need to pick rock, paper, scissors</li>
+                    <li>the rules:</li>
+                    <ul>
+                        <li>rock defeats scissors</li>
+                        <li>scissors defeats paper</li>
+                        <li>paper defeats rock </li>
+                    </ul>
+                    <li> may the luckiest hand wins!!!</li></li>
+                </ul>
+         </div>
+         <h1> choose wisely </h1>
+         <div class="container">
+            <div class="horizontal-container">
+                <img src="assets/images/rock.png" alt="Rock" class="rps-button" onclick="playGame('rock')">
+                <img src="assets/images/paper.png" alt="Paper" class="rps-button" onclick="playGame('paper')">
+                <img src="assets/images/scissors.png" alt="Scissors" class="rps-button" onclick="playGame('scissors')">
+            </div>
+            <div id="result" style="margin:2vw"></div>
+            <button type="button" id="tryAgain" onclick="resetGame()">Try Again</button>
+         </div>
+         <script>
+         document.getElementById("tryAgain").style.display = "none";
+         function playGame(playerChoice) {
+             const choices = ['rock', 'paper', 'scissors'];
+             const computerChoice = choices[Math.floor(Math.random() * 3)]; // picking betweenrock paper scissors
+             
+       
+             let outcome = '';
+       
+             if (playerChoice === computerChoice) {
+               outcome = "It's a draw. Try again?";
+             } else if (
+               (playerChoice === 'rock' && computerChoice === 'scissors') ||
+               (playerChoice === 'paper' && computerChoice === 'rock') ||
+               (playerChoice === 'scissors' && computerChoice === 'paper')
+             ) {
+               outcome = "You win. Good work.";
+             } else {
+               outcome = "Computer wins! HAHAHAHA!";
+             }
+       
+             document.getElementById("result").innerHTML = `
+               You chose: <strong>${playerChoice}</strong><br>
+               Computer chose: <strong>${computerChoice}</strong><br><br>
+               <strong>${outcome}</strong>`;
+             document.getElementById("tryAgain").style.display = "block";
+           }
+           function resetGame() {
+                document.getElementById("result").innerHTML = "";
+                document.getElementById("tryAgain").style.display = "none";
+}
+         </script>
+       
+       <div class="card-container">
+        <div class="nav-card" onclick="location.href='index.html'">
+            <p>Go to home page</p>
+        </div>
+        <div class="nav-card" onclick="location.href='clicker.html'">
+            <p>Go to clicker game</p>
+        </div>
+        <div class="nav-card" onclick="location.href='number-guess.html'">
+            <p>Go to number guessing game</p>
+        </div>
+    </div>
+    
+       </body>
+<footer>
+    Copyright ImajineNATION by Syifa
+</footer>

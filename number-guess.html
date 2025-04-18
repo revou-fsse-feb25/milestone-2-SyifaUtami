@@ -10,8 +10,95 @@
 <body> 
     <main>
         <img src="assets/images/mario-block.gif" class="center">
-        <h1> Number guessing game</h1>
-        <h2 class="h2center">How to play</h2>
-        <p> </p>
+        <h1> Number guessing game &#129300;</h1>
+        <div class="container">
+            <h2> How to play &#x1f579;</h2>
+                <ul class="ulCenter">
+                    <li>The computer will randomly pick a number between 1 and 100.</li>
+                    <li>Your job is to guess what it is!</li>
+                    <li>After each guess, you'll get a hint:</li>
+                    <ul>
+                        <li>"Too high!" if your guess is above the number.</li>
+                        <li>"Too low!" if it's below the number.</li>
+                        <li> "So close!" if the number is close to the correct one. </li>
+                    </ul>
+                </ul>
+         </div>
+         <div class="number-container">
+            <form action="" class="number-left">
+                <label><h2>Guess the number!</h2></label>
+                <input type="number" placeholder="Add number from 1-100" id="numberGuess" class="number-inputs" required>
+                <button type="button" id="submitGuess" class="submit-guess"><b>Check your guess</b></button>
+            </form>
+        </div>
+        
+        <p id="notif" class="pCenter"></p>
+        <p id="attemptCount" class="pCenter">Attempts: 0 / 5</p>
+        <button id="playAgain" style ="margin: 20px auto;display: block;">Play Again?</button>
+
+        <div class="card-container">
+            <div class="nav-card" onclick="location.href='index.html'">
+                <p>Go to home page</p>
+            </div>
+            <div class="nav-card" onclick="location.href='clicker.html'">
+                <p>Go to clicker game</p>
+            </div>
+            <div class="nav-card">
+                <p>Go to rock paper scissors game</p>
+            </div>
+        </div>
+        
+
+        
+        <script type="text/javascript">
+            let randomNumber = Math.floor(Math.random() * 100 + 1);
+            let attempts = 0;
+            const maxAttempts = 5;
+        
+            document.getElementById("submitGuess").onclick = function() {
+                let guessValue = parseInt(document.getElementById("numberGuess").value);
+        
+                if (isNaN(guessValue)) {
+                    document.getElementById("notif").innerHTML = "Please enter a valid number!";
+                    return;
+                }
+        
+                attempts++;
+                document.getElementById("attemptCount").innerHTML = `Attempts: ${attempts} / ${maxAttempts}`;
+        
+                if (randomNumber === guessValue) {
+                    document.getElementById("notif").innerHTML = `You guessed it in ${attempts} tries. Yay!`;
+                    disableInput();
+                } else if (attempts >= maxAttempts) {
+                    document.getElementById("notif").innerHTML = `Out of attempts :( The correct number was ${randomNumber}.`;
+                    disableInput();
+                } else if (Math.abs(randomNumber - guessValue) === 1) {
+                    document.getElementById("notif").innerHTML = "Very close! Try again!";
+                } else if (Math.abs(randomNumber - guessValue) <= 10) {
+                    document.getElementById("notif").innerHTML = "Oooh, so lose!";
+                } else {
+                    document.getElementById("notif").innerHTML = "Whoops, that's way off";
+                }
+            };
+        
+            function disableInput() { //stop from 
+                document.getElementById("submitGuess").disabled = true;
+                document.getElementById("numberGuess").disabled = true;
+            }
+            document.getElementById("playAgain").onclick = function() {
+                randomNumber = Math.floor(Math.random() * 100 + 1);
+                attempts = 0;
+                document.getElementById("numberGuess").value = "";
+                document.getElementById("notif").innerHTML = "";
+                document.getElementById("attemptCount").innerHTML = `Attempts: 0 / ${maxAttempts}`;
+                document.getElementById("submitGuess").disabled = false;
+                document.getElementById("numberGuess").disabled = false;
+                document.getElementById("playAgain").style.display = "none";
+            };
+        </script>
+
     </main>
-</body>
+</body> 
+<footer>
+    Copyright ImajineNATION by Syifa 
+</footer> 

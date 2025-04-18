@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syifa Utami's Website</title>
+    <meta name="REIMAJINEgames" content="">
+    <link rel="stylesheet" href="assets/index.css"></link>
+</head>
+<body> 
+    <main>
+        <img src="assets/images/cat-click.gif" class="center">
+        <h1> Clicker game &#128280;</h1>
+        <div class="container">
+            <h2> How to play &#x1f579;</h2>
+                <ul class="ulCenter">
+                    <li>Your Mission: Click. Click. And click some more. </li>
+                    <li> 30 seconds is your limit.</li>
+                </ul>
+                
+        </div>
+        <div class="center-container">
+            <button id="startBtn" onclick="startGame()">Start Game</button> 
+            <button id="clickBtn" class="button2" onclick="countClick()" disabled> <p> Click Me! </p></button> 
+            <p id="score">Score: 0</p>
+            <p id="timer">Time Left: 30s</p>
+            <button id="resetBtn" onclick="resetGame()">Reset</button>
+        </div>
+    </main>
+
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        let timerInterval;
+        let gameActive = false;
+
+        const scoreDisplay = document.getElementById('score'); //display scores
+        const timerDisplay = document.getElementById('timer'); //display timer
+        const startButton = document.getElementById('startBtn'); //start button
+        const clickButton = document.getElementById('clickBtn'); //click button
+
+        function startGame() {
+            if (gameActive) return; // checking if game has started
+
+            score = 0;
+            timeLeft = 15; //15 second time
+            gameActive = true;
+            scoreDisplay.textContent = 'Score: 0';
+            timerDisplay.textContent = 'Time Left: 15s';
+            clickButton.disabled = false; 
+            startButton.disabled = true;
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerDisplay.textContent = 'Time Left: ' + timeLeft + 's'; //showing timer
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    gameActive = false;
+                    clickButton.disabled = true;
+                    startButton.disabled = false;
+                    timerDisplay.textContent = 'Time’s up! your score is'+ score ;
+                }
+            }, 1000);
+        }
+
+        function countClick() {
+            if (gameActive) {
+                score++;
+                scoreDisplay.textContent = 'Score: ' + score;
+            }
+        }
+        function resetGame() {
+            clearInterval(timerInterval); // Stop the timer if running
+            gameActive = false;
+            score = 0;
+            timeLeft = 15;
+            scoreDisplay.textContent = 'Score: 0';
+            timerDisplay.textContent = 'Time Left: 15s';
+            startButton.disabled = false;
+            clickButton.disabled = true;
+}
+    </script>
+    <div class="card-container">
+        <div class="nav-card" onclick="location.href='index.html'">
+            <p>Go to home page</p>
+        </div>
+        <div class="nav-card" onclick="location.href='number-guess.html'">
+            <p>Go to number guessing game</p>
+        </div>
+        <div class="nav-card" onclick="location.href='rock-paper-scissors.html'">
+            <p>Go to rock paper scissors game</p>
+        </div>
+
+</body>

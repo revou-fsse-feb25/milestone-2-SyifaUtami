@@ -13,7 +13,6 @@
     width: 25vw;
     color:rgb(25, 24, 24);
 
-
 }
 .card:hover {
     background-color: #FAC67A;
@@ -23,7 +22,7 @@
     transition: all 1s ease;
 }
 .card p {
-    padding: 30px;
+    padding: 2vw;
     text-align: center;
     font-size: 1.2rem;
 }
@@ -31,6 +30,42 @@
     text-align: center;
     font-size: 1.5rem;
 }
+
+.nav-button {
+    width: 25vw;
+    height: 25vw;
+    background-color: #FAC67A;
+    color: #69247C;
+}
+
+.nav-card {
+    background-color: #FAC67A;
+    margin:1vw;
+    height:5vw;
+    width: 15vw;
+    color:rgb(25, 24, 24);
+
+
+}
+.nav-card:hover {
+    background-color:#DA498D;
+    color:#F9E6CF;
+    cursor: pointer;
+}
+.nav-card p {
+    padding: .5vw;
+    text-align: center;
+    font-size: medium;
+}
+
+.rps-button {
+    width: 10vw;
+    cursor: pointer;
+  }
+.rps-button:hover {
+    transform:scale(1.1)
+}
+
 @media screen and (max-width: 900px) {
     .card-container {
         display: flex;
